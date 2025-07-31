@@ -1,0 +1,101 @@
+Date,Customer ID,Food Quality,Service Quality,Hygiene,Value for Money,Overall Satisfaction,Comments,NPS Score
+2024-01-15,CUST001,5,4,5,4,Highly Satisfied,Excellent food quality and great atmosphere!,9
+2024-01-14,CUST002,4,5,4,5,Satisfied,Very good service and reasonable prices,8
+2024-01-13,CUST003,3,3,4,3,Neutral,Average experience overall,6
+2024-01-12,CUST004,2,3,2,2,Dissatisfied,Food quality could be much better,4
+2024-01-11,CUST005,5,5,5,4,Highly Satisfied,Outstanding service and delicious food!,10
+2024-01-10,CUST006,4,4,5,4,Satisfied,Clean environment and good food,7
+2024-01-09,CUST007,1,2,2,2,Highly Dissatisfied,Poor hygiene standards and terrible food,2
+2024-01-08,CUST008,4,3,4,4,Satisfied,Good value for money,7
+2024-01-07,CUST009,5,4,5,3,Satisfied,Excellent food but a bit pricey,8
+2024-01-06,CUST010,3,4,3,4,Neutral,Service was good but food was average,6
+2024-01-05,CUST011,4,5,4,5,Satisfied,Great customer service and fair prices,8
+2024-01-04,CUST012,2,2,3,2,Dissatisfied,Long waiting time and cold food,3
+2024-01-03,CUST013,5,5,5,5,Highly Satisfied,Perfect experience! Will definitely return,10
+2024-01-02,CUST014,4,4,4,4,Satisfied,Consistent quality and good service,7
+2024-01-01,CUST015,3,3,3,3,Neutral,Nothing special but acceptable,5
+2023-12-31,CUST016,4,3,4,4,Satisfied,Good food quality and clean place,7
+2023-12-30,CUST017,1,1,1,1,Highly Dissatisfied,Worst dining experience ever!,0
+2023-12-29,CUST018,5,4,5,4,Highly Satisfied,Amazing food and friendly staff,9
+2023-12-28,CUST019,3,4,3,4,Neutral,Service was good but food needs improvement,6
+2023-12-27,CUST020,4,4,4,3,Satisfied,Good overall experience,7
+2023-12-26,CUST021,5,5,4,4,Highly Satisfied,Excellent Christmas dinner!,9
+2023-12-25,CUST022,2,3,2,3,Dissatisfied,Food was cold and not fresh,3
+2023-12-24,CUST023,4,5,5,4,Satisfied,Great service on Christmas Eve,8
+2023-12-23,CUST024,3,2,3,3,Neutral,Average food and slow service,5
+2023-12-22,CUST025,5,4,5,5,Highly Satisfied,Outstanding food quality and value!,10
+2023-12-21,CUST026,4,4,4,4,Satisfied,Consistently good quality,7
+2023-12-20,CUST027,2,2,2,2,Dissatisfied,Poor quality across all aspects,2
+2023-12-19,CUST028,4,5,4,4,Satisfied,Excellent customer service,8
+2023-12-18,CUST029,3,3,4,3,Neutral,Clean but food was just okay,6
+2023-12-17,CUST030,5,5,5,4,Highly Satisfied,Best restaurant in the area!,9
+2023-12-16,CUST031,4,3,4,4,Satisfied,Good food and reasonable prices,7
+2023-12-15,CUST032,1,2,1,2,Highly Dissatisfied,Terrible hygiene and bad food,1
+2023-12-14,CUST033,4,4,5,4,Satisfied,Very clean and good food quality,8
+2023-12-13,CUST034,3,4,3,4,Neutral,Good service but average food,6
+2023-12-12,CUST035,5,4,5,3,Satisfied,Excellent food but expensive,8
+2023-12-11,CUST036,4,5,4,5,Satisfied,Great value and excellent service,8
+2023-12-10,CUST037,2,3,2,3,Dissatisfied,Food quality disappointing,4
+2023-12-09,CUST038,5,5,5,5,Highly Satisfied,Perfect in every way!,10
+2023-12-08,CUST039,4,4,4,4,Satisfied,Solid dining experience,7
+2023-12-07,CUST040,3,3,3,3,Neutral,Average across all categories,5
+2023-12-06,CUST041,4,3,4,4,Satisfied,Good food and clean environment,7
+2023-12-05,CUST042,1,1,2,1,Highly Dissatisfied,Unacceptable quality and service,0
+2023-12-04,CUST043,5,4,5,4,Highly Satisfied,Wonderful dining experience!,9
+2023-12-03,CUST044,4,5,4,4,Satisfied,Excellent staff and good food,8
+2023-12-02,CUST045,3,2,3,3,Neutral,Food was okay but service was slow,5
+2023-12-01,CUST046,4,4,5,4,Satisfied,Very clean and good quality,8
+2023-11-30,CUST047,2,2,2,2,Dissatisfied,Below expectations in all areas,3
+2023-11-29,CUST048,5,5,4,5,Highly Satisfied,Amazing value and quality!,10
+2023-11-28,CUST049,4,4,4,3,Satisfied,Good food but a bit pricey,7
+2023-11-27,CUST050,3,4,3,4,Neutral,Service was good but food average,6
+2023-11-26,CUST051,4,3,4,4,Satisfied,Good overall experience,7
+2023-11-25,CUST052,1,2,1,1,Highly Dissatisfied,Worst meal I've ever had,1
+2023-11-24,CUST053,5,4,5,4,Highly Satisfied,Excellent Thanksgiving dinner!,9
+2023-11-23,CUST054,4,5,4,5,Satisfied,Great service and fair prices,8
+2023-11-22,CUST055,3,3,3,3,Neutral,Nothing exceptional but adequate,5
+2023-11-21,CUST056,4,4,4,4,Satisfied,Consistent quality and service,7
+2023-11-20,CUST057,2,3,2,2,Dissatisfied,Food quality needs improvement,3
+2023-11-19,CUST058,5,5,5,4,Highly Satisfied,Outstanding experience overall!,9
+2023-11-18,CUST059,4,4,5,4,Satisfied,Very clean and good food,8
+2023-11-17,CUST060,3,2,3,3,Neutral,Slow service but food was okay,5
+2023-11-16,CUST061,4,5,4,4,Satisfied,Excellent customer care,8
+2023-11-15,CUST062,1,1,1,1,Highly Dissatisfied,Completely unsatisfactory,0
+2023-11-14,CUST063,5,4,5,5,Highly Satisfied,Perfect food and great value!,10
+2023-11-13,CUST064,4,4,4,4,Satisfied,Reliable quality every time,7
+2023-11-12,CUST065,3,4,3,3,Neutral,Good service but average food,6
+2023-11-11,CUST066,4,3,4,4,Satisfied,Good food and clean place,7
+2023-11-10,CUST067,2,2,2,3,Dissatisfied,Poor food quality and service,3
+2023-11-09,CUST068,5,5,5,4,Highly Satisfied,Exceptional dining experience!,9
+2023-11-08,CUST069,4,5,4,5,Satisfied,Great value for money,8
+2023-11-07,CUST070,3,3,4,3,Neutral,Clean but food could be better,6
+2023-11-06,CUST071,4,4,4,4,Satisfied,Solid performance across board,7
+2023-11-05,CUST072,1,2,1,2,Highly Dissatisfied,Poor hygiene and terrible food,1
+2023-11-04,CUST073,5,4,5,4,Highly Satisfied,Amazing food and atmosphere!,9
+2023-11-03,CUST074,4,4,4,4,Satisfied,Good quality and service,7
+2023-11-02,CUST075,3,3,3,4,Neutral,Average experience overall,5
+2023-11-01,CUST076,4,5,4,4,Satisfied,Excellent service quality,8
+2023-10-31,CUST077,2,2,3,2,Dissatisfied,Halloween dinner was disappointing,3
+2023-10-30,CUST078,5,5,5,5,Highly Satisfied,Perfect Halloween celebration!,10
+2023-10-29,CUST079,4,4,4,3,Satisfied,Good food but expensive,7
+2023-10-28,CUST080,3,4,3,4,Neutral,Service good but food average,6
+2023-10-27,CUST081,4,3,4,4,Satisfied,Clean and good quality,7
+2023-10-26,CUST082,1,1,2,1,Highly Dissatisfied,Unacceptable in all aspects,0
+2023-10-25,CUST083,5,4,5,4,Highly Satisfied,Outstanding food quality!,9
+2023-10-24,CUST084,4,5,4,4,Satisfied,Excellent staff and service,8
+2023-10-23,CUST085,3,2,3,3,Neutral,Food okay but service slow,5
+2023-10-22,CUST086,4,4,5,4,Satisfied,Very clean and good food,8
+2023-10-21,CUST087,2,3,2,2,Dissatisfied,Food quality below average,3
+2023-10-20,CUST088,5,5,4,5,Highly Satisfied,Amazing experience and value!,10
+2023-10-19,CUST089,4,4,4,4,Satisfied,Consistent good quality,7
+2023-10-18,CUST090,3,3,3,3,Neutral,Nothing special but acceptable,5
+2023-10-17,CUST091,4,4,4,3,Satisfied,Good food but pricey,7
+2023-10-16,CUST092,1,2,1,1,Highly Dissatisfied,Terrible experience overall,1
+2023-10-15,CUST093,5,5,5,4,Highly Satisfied,Excellent in every aspect!,9
+2023-10-14,CUST094,4,4,4,5,Satisfied,Great value for money,8
+2023-10-13,CUST095,3,4,3,4,Neutral,Good service average food,6
+2023-10-12,CUST096,4,3,4,4,Satisfied,Good overall experience,7
+2023-10-11,CUST097,2,2,2,2,Dissatisfied,All aspects need improvement,2
+2023-10-10,CUST098,5,4,5,4,Highly Satisfied,Wonderful dining experience!,9
+2023-10-09,CUST099,4,5,4,4,Satisfied,Excellent customer service,8
+2023-10-08,CUST100,3,3,4,3,Neutral,Clean but food was just okay,6 

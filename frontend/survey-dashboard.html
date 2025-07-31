@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Satisfaction Survey Dashboard</title>
+    <link rel="stylesheet" href="survey-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-chart-line nav-icon"></i>
+                <span class="brand-text">Survey Analytics</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#overview" class="nav-link active" data-section="overview">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Overview</span>
+                </a>
+                <a href="#analytics" class="nav-link" data-section="analytics">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#insights" class="nav-link" data-section="insights">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Insights</span>
+                </a>
+                <a href="#data" class="nav-link" data-section="data">
+                    <i class="fas fa-database"></i>
+                    <span>Data</span>
+                </a>
+            </div>
+
+            <div class="nav-controls">
+                <div class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <button class="upload-btn nav-upload-btn" id="nav-upload-btn">
+                    <i class="fas fa-upload"></i>
+                    <span>Upload Data</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-filter"></i> Filters</h3>
+            </div>
+            
+            <div class="filter-section">
+                <div class="filter-group">
+                    <label for="date-filter">
+                        <i class="fas fa-calendar-alt"></i>
+                        Date Range
+                    </label>
+                    <select id="date-filter" class="styled-select">
+                        <option value="all">All Time</option>
+                        <option value="last-30">Last 30 Days</option>
+                        <option value="last-90">Last 90 Days</option>
+                        <option value="last-year">Last Year</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="rating-filter">
+                        <i class="fas fa-star"></i>
+                        Satisfaction Level
+                    </label>
+                    <select id="rating-filter" class="styled-select">
+                        <option value="all">All Ratings</option>
+                        <option value="highly-satisfied">Highly Satisfied</option>
+                        <option value="satisfied">Satisfied</option>
+                        <option value="neutral">Neutral</option>
+                        <option value="dissatisfied">Dissatisfied</option>
+                        <option value="highly-dissatisfied">Highly Dissatisfied</option>
+                    </select>
+                </div>
+
+                <div class="filter-actions">
+                    <button class="btn-secondary" id="reset-filters">
+                        <i class="fas fa-undo"></i>
+                        Reset Filters
+                    </button>
+                    <button class="btn-primary" id="apply-filters">
+                        <i class="fas fa-search"></i>
+                        Apply
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar-stats">
+                <h4><i class="fas fa-info-circle"></i> Quick Stats</h4>
+                <div class="quick-stat">
+                    <span class="stat-label">Last Updated</span>
+                    <span class="stat-value" id="last-updated">Just now</span>
+                </div>
+                <div class="quick-stat">
+                    <span class="stat-label">Data Points</span>
+                    <span class="stat-value" id="data-points">0</span>
+                </div>
+                <div class="quick-stat">
+                    <span class="stat-label">Avg Rating</span>
+                    <span class="stat-value" id="avg-rating">0.0</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <!-- Overview Section -->
+            <section id="overview" class="content-section active">
+                <div class="section-header">
+                    <h1><i class="fas fa-tachometer-alt"></i> Dashboard Overview</h1>
+                    <p class="section-subtitle">Real-time customer satisfaction analytics and insights</p>
+                </div>
+
+                <!-- Key Metrics Grid -->
+                <div class="metrics-grid">
+                    <div class="metric-card primary">
+                        <div class="metric-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>Overall Satisfaction</h3>
+                            <div class="metric-value" id="overall-satisfaction">Loading...</div>
+                            <div class="metric-trend" id="overall-trend">-</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card success">
+                        <div class="metric-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>Total Responses</h3>
+                            <div class="metric-value" id="total-responses">Loading...</div>
+                            <div class="metric-subtitle">Survey Participants</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card warning">
+                        <div class="metric-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>Satisfaction Rate</h3>
+                            <div class="metric-value" id="satisfaction-rate">Loading...</div>
+                            <div class="metric-subtitle">Satisfied + Highly Satisfied</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card info">
+                        <div class="metric-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>Net Promoter Score</h3>
+                            <div class="metric-value" id="nps-score">Loading...</div>
+                            <div class="metric-subtitle">Customer Loyalty Index</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-clock"></i> Recent Activity</h3>
+                            <span class="badge">Live</span>
+                        </div>
+                        <div class="activity-feed" id="activity-feed">
+                            <!-- Activity items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" class="content-section">
+                <div class="section-header">
+                    <h1><i class="fas fa-chart-bar"></i> Analytics Dashboard</h1>
+                    <p class="section-subtitle">Comprehensive data visualization and trend analysis</p>
+                </div>
+
+                <!-- Charts Grid -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-chart-pie"></i> Satisfaction Distribution</h3>
+                            <div class="chart-actions">
+                                <button class="btn-icon" title="Download Chart">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="satisfaction-pie-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-chart-bar"></i> Attribute Ratings</h3>
+                            <div class="chart-actions">
+                                <button class="btn-icon" title="Download Chart">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="attributes-bar-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card full-width">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-chart-line"></i> Satisfaction Trends</h3>
+                            <div class="chart-actions">
+                                <button class="btn-icon" title="Download Chart">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="trends-line-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-radar-chart"></i> Performance Radar</h3>
+                            <div class="chart-actions">
+                                <button class="btn-icon" title="Download Chart">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="radar-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Insights Section -->
+            <section id="insights" class="content-section">
+                <div class="section-header">
+                    <h1><i class="fas fa-lightbulb"></i> AI-Powered Insights</h1>
+                    <p class="section-subtitle">Intelligent analysis and actionable recommendations</p>
+                </div>
+
+                <div class="insights-grid">
+                    <div class="insight-card positive">
+                        <div class="insight-header">
+                            <h4><i class="fas fa-thumbs-up"></i> Top Performing Areas</h4>
+                            <span class="confidence-badge">High Confidence</span>
+                        </div>
+                        <div class="insight-content">
+                            <ul id="top-performing-list">
+                                <li>Loading insights...</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="insight-card negative">
+                        <div class="insight-header">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Areas for Improvement</h4>
+                            <span class="confidence-badge">Medium Confidence</span>
+                        </div>
+                        <div class="insight-content">
+                            <ul id="improvement-areas-list">
+                                <li>Loading insights...</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="insight-card recommendations">
+                        <div class="insight-header">
+                            <h4><i class="fas fa-magic"></i> Smart Recommendations</h4>
+                            <span class="confidence-badge">AI Generated</span>
+                        </div>
+                        <div class="insight-content">
+                            <ul id="recommendations-list">
+                                <li>Loading recommendations...</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Section -->
+            <section id="data" class="content-section">
+                <div class="section-header">
+                    <h1><i class="fas fa-database"></i> Data Management</h1>
+                    <p class="section-subtitle">Detailed analysis and feedback management</p>
+                </div>
+
+                <!-- Performance Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-table"></i> Performance Analysis</h3>
+                        <div class="card-actions">
+                            <button class="btn-secondary">
+                                <i class="fas fa-download"></i>
+                                Export CSV
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="performance-table">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>Average Rating</th>
+                                    <th>Satisfaction Rate</th>
+                                    <th>Response Count</th>
+                                    <th>Trend</th>
+                                    <th>Priority</th>
+                                </tr>
+                            </thead>
+                            <tbody id="performance-table-body">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Customer Feedback -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-comments"></i> Recent Customer Feedback</h3>
+                        <div class="card-actions">
+                            <button class="btn-secondary">
+                                <i class="fas fa-filter"></i>
+                                Filter Comments
+                            </button>
+                        </div>
+                    </div>
+                    <div class="comments-container" id="comments-container">
+                        <!-- Comments will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- File Upload Modal -->
+    <div id="upload-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-upload"></i> Upload Survey Data</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h4>Drag & drop your Excel file here</h4>
+                    <p>or <span class="upload-link">browse to select</span></p>
+                    <input type="file" id="excel-upload" accept=".xlsx,.xls" class="file-input">
+                </div>
+                
+                <div class="file-requirements">
+                    <h5><i class="fas fa-info-circle"></i> File Requirements</h5>
+                    <ul>
+                        <li>Excel format (.xlsx or .xls)</li>
+                        <li>Maximum file size: 10MB</li>
+                        <li>Required columns: Date, Customer ID, Ratings (1-5), Overall Satisfaction</li>
+                        <li>Optional: Comments, NPS Score</li>
+                    </ul>
+                </div>
+                
+                <div class="upload-status" id="upload-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="spinner">
+            <div class="spinner-ring"></div>
+            <div class="spinner-ring"></div>
+            <div class="spinner-ring"></div>
+        </div>
+        <p>Processing your data...</p>
+    </div>
+
+    <script src="survey-dashboard.js"></script>
+</body>
+</html> 
